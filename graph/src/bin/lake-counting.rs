@@ -38,8 +38,8 @@ fn dfs(fields: &mut Vec<Vec<&str>>, x: &usize, y: &usize) {
 
     for dx in 0..=2 {
         for dy in 0..=2 {
-            let opt_nx = (*x).checked_add(dx).unwrap().checked_sub(1);
-            let opt_ny = (*y).checked_add(dy).unwrap().checked_sub(1);
+            let opt_nx = (*x + dx).checked_sub(1);
+            let opt_ny = (*y + dy).checked_sub(1);
 
             let ny = match opt_ny {
                 None => {
