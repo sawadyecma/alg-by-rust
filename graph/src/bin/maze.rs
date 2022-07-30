@@ -51,6 +51,8 @@ fn main() {
             let ny = (p.y as isize) + DY[i];
 
             println!("nx: {}, ny:{}", nx, ny);
+
+            // mazeの外側であればcontinue
             if !(0 <= nx && nx < (n as isize) && 0 <= ny && ny < (m as isize)) {
                 continue;
             }
@@ -58,6 +60,7 @@ fn main() {
             let nx = nx as usize;
             let ny = ny as usize;
 
+            // 通れる点で、最短距離が未確定な場合
             if maze[ny][nx] != '#' && res_vec[ny][nx] == INF {
                 que.push_front(Pointer { x: nx, y: ny });
                 res_vec[ny][nx] = res_vec[p.y][p.x] + 1;
